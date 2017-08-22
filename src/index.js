@@ -5,11 +5,12 @@ import dotenv from 'dotenv';
 dotenv.load();
 
 const app = new Koa();
+const PORT = process.env.port || 3000;
 
 app.use(async (ctx) => {
   ctx.body = 'Hello World';
 });
 
-app.listen(process.env.PORT || 3000);
+app.listen(PORT);
 
-console.log(`Your awesome Koa API is running @ http://127.0.0.1:${process.env.PORT || 3000}`);
+console.log(`Your awesome Koa API is running @ http://127.0.0.1:${PORT}`);
