@@ -2,10 +2,10 @@ import 'babel-polyfill';
 import Koa from 'koa';
 import dotenv from 'dotenv';
 
-dotenv.load();
+dotenv.config();
 
 const app = new Koa();
-const PORT = process.env.port || 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(async (ctx) => {
   ctx.body = 'Hello World';
