@@ -34,7 +34,8 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-watch": "^2.0.7",
     "debug": "^3.0.0",
-    "eslint": "^4.5.0"
+    "eslint": "^4.5.0",
+    "morgan": "^1.8.2"
   },
   "babel": {
     "sourceMaps": "inline",
@@ -46,7 +47,9 @@
       [
         "module-resolver",
         {
-          "root": ["."],
+          "root": [
+            "."
+          ],
           "alias": {
             "src": "./src"
           }
