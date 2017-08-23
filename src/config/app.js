@@ -1,5 +1,6 @@
 import Koa from 'koa';
 import cors from 'koa-cors';
+import helmet from 'koa-helmet';
 
 import configureRouter from './router';
 import logger from './logger';
@@ -21,8 +22,12 @@ export default () => {
   // TODO: Make me configurable through something...
   app.use(cors());
 
-  router.get('/', (ctx) => {
+  // @see https://github.com/helmetjs/helmet
+  app.use(helmet());
+
+  router.get('/', (ctx, next) => {
     ctx.body = `Wadaap from koa-api-boilerplate! ${ctx.route.prefix}`;
+    return next();
   });
 
   app.use(router.middleware());
