@@ -1,4 +1,5 @@
 import Koa from 'koa';
+import bodyParser from 'koa-bodyparser';
 import cors from 'koa-cors';
 import helmet from 'koa-helmet';
 
@@ -19,15 +20,22 @@ export default () => {
     app.use(logger('dev'));
   }
 
-  // TODO: Make me configurable through something...
+  // @see https://github.com/evert0n/koa-cors
   app.use(cors());
 
   // @see https://github.com/helmetjs/helmet
   app.use(helmet());
 
-  router.get('/', (ctx, next) => {
+  // @see https://github.com/koajs/bodyparser
+  app.use(bodyParser());
+
+  router.get('/', async (ctx, next) => {
     ctx.body = `Wadaap from koa-api-boilerplate! ${ctx.route.prefix}`;
-    return next();
+  });
+
+  router.post('/', async (ctx, next) => {
+    console.log(ctx.request.body);
+    ctx.body = ctx.request.body;
   });
 
   app.use(router.middleware());
