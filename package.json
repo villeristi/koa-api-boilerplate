@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "A Boilerplate for modern API's with Koa",
   "keywords": [
+    "Debug",
     "Koa",
     "Koajs",
     "Koa router",
@@ -21,7 +22,6 @@
   },
   "dependencies": {
     "dotenv": "^4.0.0",
-    "koa": "^2.3.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -31,6 +31,7 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-0": "^6.24.1",
     "babel-watch": "^2.0.7",
+    "debug": "^3.0.0",
     "eslint": "^4.5.0"
   },
   "babel": {
