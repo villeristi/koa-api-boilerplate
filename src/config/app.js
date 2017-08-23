@@ -29,15 +29,7 @@ export default () => {
   // @see https://github.com/koajs/bodyparser
   app.use(bodyParser());
 
-  router.get('/', async (ctx, next) => {
-    ctx.body = `Wadaap from koa-api-boilerplate! ${ctx.route.prefix}`;
-  });
-
-  router.post('/', async (ctx, next) => {
-    console.log(ctx.request.body);
-    ctx.body = ctx.request.body;
-  });
-
+  // Use configured router
   app.use(router.middleware());
 
   return app;
