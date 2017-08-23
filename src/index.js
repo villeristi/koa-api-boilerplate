@@ -11,6 +11,4 @@ app.use(async (ctx) => {
   ctx.body = 'Hello World';
 });
 
-app.listen(PORT);
-
-console.log(`Your awesome Koa API is running @ http://127.0.0.1:${PORT}`);
+app.listen(PORT, () => console.log(`Your awesome Koa API is running @ http://127.0.0.1:${PORT}`));
