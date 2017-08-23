@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import configureApp from './config/app';
-import {getEnv, debug} from './util';
+import {getEnv, debug} from './config/util';
 
 const PORT = getEnv('PORT') || 3000;
 const app = configureApp();
