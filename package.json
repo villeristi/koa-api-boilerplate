@@ -23,8 +23,8 @@
   "dependencies": {
     "dotenv": "^4.0.0",
     "koa": "^2.3.0",
+    "koa-better-body": "^3.0.4",
     "koa-better-router": "^2.1.1",
-    "koa-bodyparser": "^4.2.0",
     "koa-cors": "0.0.16",
     "koa-helmet": "^3.2.0"
   },

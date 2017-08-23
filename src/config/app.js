@@ -1,5 +1,5 @@
 import Koa from 'koa';
-import bodyParser from 'koa-bodyparser';
+import bodyParser from 'koa-better-body';
 import cors from 'koa-cors';
 import helmet from 'koa-helmet';
 
@@ -26,7 +26,7 @@ export default () => {
   // @see https://github.com/helmetjs/helmet
   app.use(helmet());
 
-  // @see https://github.com/koajs/bodyparser
+  // @see https://github.com/tunnckoCore/koa-better-body
   app.use(bodyParser());
 
   // Use configured router
