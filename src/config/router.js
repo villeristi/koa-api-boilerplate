@@ -20,12 +20,14 @@ export default () => {
   const router = new Router(routerOpts).loadMethods();
 
   router.get('/', async (ctx) => {
-    ctx.debug('Debugging...');
+    const {debug} = ctx;
+    debug('Debugging...');
     return ctx.body = `Wadaap from koa-api-boilerplate! ${ctx.route.prefix}`;
   });
 
   router.post('/', async (ctx) => {
-    return ctx.body = ctx.request.body;
+    ctx.debug(ctx.request.fields);
+    return ctx.body = ctx.request.fields;
   });
 
   return router;

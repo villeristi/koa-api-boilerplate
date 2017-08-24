@@ -6,5 +6,5 @@ import {debug} from './util';
 export const debugMiddleware = () => (ctx, next) => {
   ctx.debug = debug;
 
-  return next()
+  return next();
 };
