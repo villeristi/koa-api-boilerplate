@@ -2,6 +2,7 @@ import Koa from 'koa';
 import bodyParser from 'koa-better-body';
 import cors from 'koa-cors';
 import helmet from 'koa-helmet';
+import error from 'koa-json-error';
 
 import configureRouter from './router';
 import logger from './logger';
@@ -38,6 +39,9 @@ export default () => {
 
   // Exposed JSONAPISerializer to ctx
   app.use(serializerMiddleware());
+
+  // @see https://github.com/koajs/json-error
+  app.use(error(errorOpts));
 
   // @see https://github.com/evert0n/koa-cors
   app.use(cors());
