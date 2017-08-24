@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "babel-watch --watch src src/index.js",
-    "build": "yarn lint && babel src -d dist --minified --quiet",
+    "build": "yarn lint && babel --no-babelrc src -d dist --presets=env,stage-0 --plugins=transform-async-to-generator --minified --quiet",
     "lint": "eslint src"
   },
   "dependencies": {
