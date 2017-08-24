@@ -1,3 +1,6 @@
+import userHandler from './modules/user/user';
+import {firstMiddleware, secondMiddleware} from './modules/user/middleware';
+
 export default {
   'GET /': {
     handler: (ctx) => {
@@ -8,18 +11,7 @@ export default {
     },
   },
   'GET /users': {
-    handler: (ctx, next) => {
-      ctx.body = 'getting /users';
-    },
-    middleware: [
-      (ctx, next) => {
-        console.log(`First middleware on ${ctx.route.path}`);
-        return next();
-      },
-      (ctx, next) => {
-        console.log(`Second middleware on ${ctx.route.path}`);
-        return next();
-      },
-    ],
+    handler: userHandler,
+    middleware: [firstMiddleware, secondMiddleware],
   },
 };
