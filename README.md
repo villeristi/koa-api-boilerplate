@@ -1,5 +1,7 @@
 # Koa API Boilerplate
 
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://github.com/villeristi/koa-api-boilerplate/blob/develop/LICENSE)
+
 Easily configurable & scalable API-only boilerplate for blazingly fast Koajs-framework with [JSON API](http://jsonapi.org/) specification & ES6-syntax included out-of-the-box! 
 
 Built with:
@@ -25,7 +27,7 @@ Built with:
 
 ## Routing
 
-Routing is a consept which should be dead simple. In this boilerplate routing is configured through [routes.js](./src/routes.js) file by adding a new `key-value` pair to default exported object, where `key` is a combination of `HTTP-VERB` and a route-path, e.g. `'GET /foobar''`.
+Routing is a consept which should be dead simple. In this boilerplate routing is configured through [routes.js](./src/routes.js) file by adding a new `key-value` pair to default exported object, where `key` is a combination of `HTTP-verb` and a route-path, e.g. `'GET /foobar'`.
 
 `value`s only required property is a handler-function which takes a `ctx` & `next` (see [context-documentation](http://koajs.com/#context)) properties. You can also define as many middleware-functions inside `value`s `middleware`-array. Middleware-functions are executed in the same order they are specified in the array.
 
