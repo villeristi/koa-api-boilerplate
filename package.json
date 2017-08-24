@@ -23,12 +23,14 @@
   },
   "dependencies": {
     "dotenv": "^4.0.0",
+    "joi": "^10.6.0",
     "jsonapi-serializer": "^3.5.5",
     "koa": "^2.3.0",
     "koa-better-body": "^3.0.4",
     "koa-better-router": "^2.1.1",
     "koa-cors": "0.0.16",
     "koa-helmet": "^3.2.0",
+    "koa-json-error": "^3.1.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
