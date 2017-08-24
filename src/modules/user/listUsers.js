@@ -1,20 +1,33 @@
 /**
+ * Dummy users
+ * @type {[null,null]}
+ */
+export const users = [{
+  id: 1,
+  firstName: 'John',
+  lastName: 'Doe',
+  city: 'Uotila',
+}, {
+  id: 2,
+  firstName: 'Jane',
+  lastName: 'Doe',
+  city: 'uotila',
+}];
+
+/**
  * Mocking API-request
+ * @param id
  * @param timeout
  */
-const fetchUsers = (timeout = 1000) => new Promise((resolve) => {
+export const fetchUsers = (id = null, timeout = 1000) => new Promise((resolve, reject) => {
   return setTimeout(() => {
-    return resolve([{
-      id: 1,
-      firstName: 'John',
-      lastName: 'Doe',
-      city: 'Uotila',
-    }, {
-      id: 2,
-      firstName: 'Jane',
-      lastName: 'Doe',
-      city: 'uotila',
-    }]);
+    const data = id ? users.find((user) => String(user.id) === id) : users;
+
+    if (!data) {
+      return reject('User not found');
+    }
+
+    return resolve(data);
   }, timeout)
 });
 
@@ -24,10 +37,13 @@ const fetchUsers = (timeout = 1000) => new Promise((resolve) => {
  * @returns {Promise.<void>}
  */
 export default async (ctx) => {
-  const {serializer} = ctx;
-  const users = await fetchUsers();
+  try {
+    const users = await fetchUsers();
 
-  ctx.body = serializer('users', {
-    attributes: ['firstName', 'lastName'],
-  }).serialize(users);
+    ctx.body = ctx.serializer('users', {
+      attributes: ['firstName', 'lastName'],
+    }).serialize(users);
+  } catch (e) {
+    ctx.throw(404, e);
+  }
 };
