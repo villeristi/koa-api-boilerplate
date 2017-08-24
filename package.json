@@ -1,6 +1,6 @@
 {
   "name": "koa-api-boilerplate",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A Boilerplate for modern API's with Koa",
   "keywords": [
     "Babel",
