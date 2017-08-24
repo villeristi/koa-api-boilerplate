@@ -40,6 +40,7 @@ export default async (ctx) => {
   try {
     const users = await fetchUsers();
 
+    // For serialization, @see https://github.com/SeyZ/jsonapi-serializer
     ctx.body = ctx.serializer('users', {
       attributes: ['firstName', 'lastName'],
     }).serialize(users);

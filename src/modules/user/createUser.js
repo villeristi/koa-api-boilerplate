@@ -28,6 +28,7 @@ export default async (ctx) => {
 
   /**
    * Valid schema for user request
+   * @see https://github.com/hapijs/joi
    * @type {{firstName, lastName}}
    */
   const schema = {
@@ -37,6 +38,7 @@ export default async (ctx) => {
 
   /**
    * Validate against schema & pick error
+   * @see https://github.com/hapijs/joi
    */
   const {error} = Joi.validate(request.fields, schema, {allowUnknown: true});
 

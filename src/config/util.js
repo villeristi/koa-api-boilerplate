@@ -3,7 +3,7 @@ import _debug from 'debug';
 /**
  * Debug
  */
-export const debug = _debug('koa-boilerplate');
+export const debug = _debug('koa-api-boilerplate');
 
 /**
  *
