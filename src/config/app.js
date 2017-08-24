@@ -5,9 +5,20 @@ import helmet from 'koa-helmet';
 
 import configureRouter from './router';
 import logger from './logger';
-import {debugMiddleware} from './middleware';
+import {debugMiddleware, serializerMiddleware} from './middleware';
 import {getEnv} from './util';
 
+/**
+ * Avoid showing the stacktrace in 'production' env
+ * @type {{postFormat: (function(*, *=))}}
+ */
+const errorOpts = {
+  postFormat: (e, errorObj) => {
+    const prodErrorObj = Object.assign({}, errorObj);
+    delete prodErrorObj.stack;
+    return getEnv('NODE_ENV') === 'production' ? prodErrorObj : errorObj;
+  },
+};
 
 /**
  * Configure Koa App
@@ -24,6 +35,9 @@ export default () => {
 
   // Exposed debug() to ctx
   app.use(debugMiddleware());
+
+  // Exposed JSONAPISerializer to ctx
+  app.use(serializerMiddleware());
 
   // @see https://github.com/evert0n/koa-cors
   app.use(cors());

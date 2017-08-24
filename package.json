@@ -3,12 +3,12 @@
   "version": "0.0.1",
   "description": "A Boilerplate for modern API's with Koa",
   "keywords": [
-    "Debug",
-    "Koa",
-    "Koajs",
-    "Koa better-router",
     "Babel",
-    "ES6"
+    "ES6",
+    "JSON API",
+    "Koa better-router",
+    "Koa",
+    "Koajs"
   ],
   "author": "Wille Ristimäki <villeristimaki@gmail.com>",
   "license": "MIT",
@@ -23,11 +23,12 @@
   },
   "dependencies": {
     "dotenv": "^4.0.0",
+    "jsonapi-serializer": "^3.5.5",
     "koa": "^2.3.0",
     "koa-better-body": "^3.0.4",
     "koa-better-router": "^2.1.1",
     "koa-cors": "0.0.16",
-    "koa-helmet": "^3.2.0"
+    "koa-helmet": "^3.2.0",
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
