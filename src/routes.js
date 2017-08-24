@@ -1,4 +1,5 @@
 import usersHandler from './modules/user/listUsers';
+import userHandler from './modules/user/showUser';
 import createUserHandler from './modules/user/createUser';
 import {firstMiddleware, secondMiddleware} from './modules/user/middleware';
 
@@ -17,6 +18,9 @@ export default {
   'GET /users': {
     handler: usersHandler,
     middleware: [firstMiddleware, secondMiddleware],
+  },
+  'GET /users/:id': {
+    handler: userHandler,
   },
   'POST /users': {
     handler: createUserHandler,
