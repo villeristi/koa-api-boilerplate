@@ -5,6 +5,7 @@ import helmet from 'koa-helmet';
 
 import configureRouter from './router';
 import logger from './logger';
+import {debugMiddleware} from './middleware';
 import {getEnv} from './util';
 
 
@@ -19,6 +20,8 @@ export default () => {
   if (getEnv('ENV') === 'develop') {
     app.use(logger('dev'));
   }
+
+  app.use(debugMiddleware());
 
   // @see https://github.com/evert0n/koa-cors
   app.use(cors());
