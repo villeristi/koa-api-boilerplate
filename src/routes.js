@@ -1,4 +1,4 @@
-import userHandler from './modules/user/user';
+import usersHandler from './modules/user/listUsers';
 import {firstMiddleware, secondMiddleware} from './modules/user/middleware';
 
 /**
@@ -14,7 +14,7 @@ export default {
     },
   },
   'GET /users': {
-    handler: userHandler,
+    handler: usersHandler,
     middleware: [firstMiddleware, secondMiddleware],
   },
 };
