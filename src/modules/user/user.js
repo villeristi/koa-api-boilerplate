@@ -1,3 +1,3 @@
-export default (ctx, next) => {
+export default (ctx) => {
   ctx.body = 'getting /users';
 };

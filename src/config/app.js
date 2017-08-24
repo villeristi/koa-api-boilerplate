@@ -18,9 +18,11 @@ export default () => {
   const app = new Koa();
 
   if (getEnv('NODE_ENV') === 'develop') {
+    // @see https://github.com/expressjs/morgan
     app.use(logger('dev'));
   }
 
+  // Exposed debug() to ctx
   app.use(debugMiddleware());
 
   // @see https://github.com/evert0n/koa-cors

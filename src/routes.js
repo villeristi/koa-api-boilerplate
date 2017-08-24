@@ -1,6 +1,9 @@
 import userHandler from './modules/user/user';
 import {firstMiddleware, secondMiddleware} from './modules/user/middleware';
 
+/**
+ * Configure routes
+ */
 export default {
   'GET /': {
     handler: (ctx) => {
