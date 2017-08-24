@@ -17,7 +17,7 @@ export default () => {
   const router = configureRouter();
   const app = new Koa();
 
-  if (getEnv('ENV') === 'develop') {
+  if (getEnv('NODE_ENV') === 'develop') {
     app.use(logger('dev'));
   }
 
